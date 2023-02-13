@@ -2,11 +2,7 @@
 order: 1
 ---
 
-#### OpenSui wallet kit is a connector used to interact with all wallets in Sui ecosystem.
-
-Let's try it in minutes. 
-
-## Setup
+## Install
 
 Firstly, install the npm package `@opensui/wallet-kit` to your project.
 
@@ -108,4 +104,3 @@ Feel free to play with our [Demo Playground](https://master.d2as2wgeia02l1.ampli
 - [SuiSwap](https://suiswap.app/)
 - [Somis.xyz](https://somis.xyz/)
 
-<img src="/partner.png" width="600px"/>

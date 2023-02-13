@@ -3,8 +3,10 @@ import { defineConfig } from 'dumi';
 export default defineConfig({
   outputPath: 'dist',
   themeConfig: {
-    name: 'OpenSui Kit',
+    name: '',
     logo: '/logo.svg',
+    favicons: ['/favicon.ico'],
+    title: 'OpenSui Kit',
     nav: [
       { title: 'Guide', link: '/guide' },
       { title: 'Tutorials', link: '/tutorial/configure-chain' },
