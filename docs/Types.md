@@ -5,7 +5,9 @@ sidebar_position: 7
 
 ## Types of Sui SDK
 
-https://github.com/MystenLabs/sui/tree/main/sdk/typescript/src/types
+Our Kit directly transparently transmits the type of sui official SDK, so that you can extend the type in typescript
+
+See [Sui SDK types](https://github.com/MystenLabs/sui/tree/main/sdk/typescript/src/types).
 
 ## IDefaultWallet
 
@@ -59,7 +61,7 @@ export interface WalletAccount {
 
 ## IWalletAdapter
 
-https://github.com/opensuiwallet/wallet-kit/blob/main/packages/kit/src/types/wallet.ts#L39
+We also provide [Wallet Adapter interface](https://github.com/opensuiwallet/wallet-kit/blob/main/packages/kit/src/types/wallet.ts).
 
 ## Chain
 
@@ -73,7 +75,7 @@ export type Chain = {
 };
 ```
 
-Default constants:
+Default values:
 
 ```ts
 export const SuiDevnetChain: Chain = {

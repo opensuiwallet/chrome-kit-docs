@@ -2,15 +2,13 @@
 order: 1
 ---
 
-OpenSui wallet kit is a wallet aggregator for DApps to interact with all the wallets in Sui ecosystem easily. 
+#### OpenSui wallet kit is a connector used to interact with all wallets in Sui ecosystem.
 
-Let's try our kit and empower your dapp in minutes. 
-
-> Here is an example [Demo Playground](https://master.d2as2wgeia02l1.amplifyapp.com/)
+Let's try it in minutes. 
 
 ## Setup
 
-First of all, let's install the npm package `@opensui/wallet-kit` to your project.
+Firstly, install the npm package `@opensui/wallet-kit` to your project.
 
 > npm package: https://www.npmjs.com/package/@opensui/wallet-kit
 
@@ -22,7 +20,7 @@ yarn add @opensui/wallet-kit
 pnpm install @opensui/wallet-kit
 ```
 
-Then wrap your `<App />` with our context provider, so that our hooks can work nicely inside your dapp.
+Secondly, wrap your `<App />` with our context provider, so that hooks can work.
 
 ```
 import { WalletProvider } from "@opensui/wallet-kit";
@@ -41,12 +39,6 @@ These preset wallets will be displayed as `Recommend` on our kit modal by defaul
 - [OpenSui Wallet](https://chrome.google.com/webstore/detail/opensui-wallet/okpkllndemhiakppbmccjbilpekhjgeb)
 - [Sui Wallet](https://chrome.google.com/webstore/detail/sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil)
 - [Ethos Wallet](https://chrome.google.com/webstore/detail/ethos-sui-wallet/mcbigmjiafegjnnogedioegffbooigli)
-- [Martian Wallet](https://chrome.google.com/webstore/detail/martian-wallet-aptos-sui/efbglgofoippbgcjepnhiblaibcnclgk)
-- [Surf Wallet](https://chrome.google.com/webstore/detail/surf-sui-wallet/emeeapjkbcbpbpgaagfchmcgglmebnen)
-- [Glass Wallet](https://chrome.google.com/webstore/detail/glass-wallet-sui-wallet/loinekcabhlmhjjbocijdoimmejangoa)
-- [Morphis Wallet](https://chrome.google.com/webstore/detail/morphis-wallet/heefohaffomkkkphnlpohglngmbcclhi)
-- [OneKey Wallet](https://chrome.google.com/webstore/detail/onekey/jnmbobjmhlngoefaiojfljckilhhlhcj)
-- [BitKeep Wallet](https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak/related)
 
 ## Place ConnectButton
 
@@ -69,9 +61,8 @@ const App = () => {
 
 ## Use Wallet Capabilities
 
-After your dapp connects to a wallet that supports [Sui wallet-standard](https://github.com/MystenLabs/sui/tree/main/sdk/wallet-adapter/packages/wallet-standard), your dapp is already empowered and able to call wallet capabilities.
-
-> Please explore the docs for further usage information 
+After your dapp connects to a wallet that supports [Sui wallet-standard](https://github.com/MystenLabs/sui/tree/main/sdk/wallet-adapter/packages/wallet-standard), 
+your dapp is already empowered and able to call wallet capabilities.
 
 ```
 import { useWallet } from '@opensui/wallet-kit';
@@ -99,8 +90,6 @@ const App = () => {
   /*return (<.../>)*/
 };
 ```
-
-Continue to BUILD your amazing dapp and join the incoming Sui-nami! 
 
 ## More Tutorials
 

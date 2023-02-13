@@ -4,20 +4,6 @@ order: 1
 
 # Basic
 
-## BEM Naming Rule
-
-The BEM naming rule is used to name CSS classes.
-It is a convention for naming CSS classes in a consistent and predictable way.
-It helps to achieve reusable components and code sharing in front-end development.
-
-```txt
-.wkit-[block]__[element]--[modifier]
-```
-
-```
-<div className={"wkit-button"}>...</div>
-```
-
 ## Import default CSS
 
 You need to import the default CSS file to use the default styles.

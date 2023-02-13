@@ -6,11 +6,9 @@ order: 1
 
 ## Description
 
-ConnectButton is the entry for users to connect their wallet.
+ConnectButton is a component with UI, which has bound events and can be released to the page to directly connect to the wallet plug-in.
 
-It manages the cycle of wallet connection, such as launching the wallet-select modal, displaying info of the account and showing the disconnect button when connected.
-
-We recommend using `ConnectButton` component to integrate OpenSui wallet kit 🥳 But you can customize your own ConnectButton with our api, check [#Use Hooks Only](/docs/tutorial/hooks-only) for details.
+We recommend using `ConnectButton` component to integrate OpenSui wallet kit. You can also customize the ConnectButton with our api, check [#Use Hooks Only](/tutorial/hooks-only) for details.
 
 ## Examples
 

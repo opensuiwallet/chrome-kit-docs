@@ -6,7 +6,7 @@ order: 1
 
 ## Introduction
 
-You can get the balance of the current account under the selected network. The useAccountBalance will return the current account's balance, loading status, error object. When fetching the banlance data, loading will set to true, otherwise false. If fetch failed, error will be an Error object instance and shows why fetch failed.
+You can use this hooks to directly get the balance, loading status and error information of the current account under the current network
 
 :::tips
 If error is not null, it means fetch balance failed. In this case, the balance will set to be 0.
@@ -22,11 +22,11 @@ If error is not null, it means fetch balance failed. In this case, the balance w
 
 ### error
 
-The `error` object tells why get balance failed. If error is not null, it may means network error or other problems of you app.
+The `error` object tell you why the request is failed. If error is not null, it means network error or other problems of you app.
 
 ### loading
 
-The `loading` can be used to add loading when fetching acount balance.
+The `loading` can be used to add loading when fetching account balance.
 
 ```
 import { useAccountBalance } from '@opensui/wallet-kit';

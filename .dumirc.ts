@@ -6,7 +6,7 @@ export default defineConfig({
     name: 'OpenSui Kit',
     logo: '/logo.svg',
     nav: [
-      { title: 'QuickStart', link: '/quick-start' },
+      { title: 'Guide', link: '/guide' },
       { title: 'Tutorials', link: '/tutorial/configure-chain' },
       { title: 'Component', link: '/components/connect-button' },
       { title: 'Hooks', link: '/hooks/use-account-balance' },
