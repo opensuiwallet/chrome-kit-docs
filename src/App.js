@@ -1,4 +1,3 @@
-import logo from '../../web/src/images/logoicon.svg';
 import './index.less';
 
 function App() {
@@ -83,7 +82,7 @@ function App() {
           <img src={'./6.png'} width={'300px'} height={'auto'} />
         </div>
         <div className={'dapp-right'}>
-          <div className={'title'}>Easily test your Sui dApp</div>
+          <div className={'title'}>Easily test Sui dApp</div>
           <div className={'desc'}>
             Can send SUI coins, swiftly create multiple wallets, and disconnect
             dApps directly from the wallet.
@@ -106,16 +105,16 @@ function App() {
         <div className={'join-title'}>Join Our Community</div>
         <div className={'btn-group'}>
           <a href={'https://twitter.com/OpenSui'} target={'_blank'}>
-            <img src={'./8.png'} width={'590px'} height={'auto'} />
+            <img src={'./8.png'} width={'500px'} height={'auto'} />
           </a>
           <a href={'https://discord.gg/opensui'} target={'_blank'}>
-            <img src={'./9.png'} width={'590px'} height={'auto'} />
+            <img src={'./9.png'} width={'500px'} height={'auto'} />
           </a>
         </div>
       </section>
       <section className={'footer'}>
         <div className="logo">
-          <img src={logo} alt="" />
+          <img src={'./logo.svg'} alt="" />
           <p>© 2023 OpenSui. All rights reserved.</p>
         </div>
         <div className="a_list">
