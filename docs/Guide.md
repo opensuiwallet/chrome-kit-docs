@@ -80,14 +80,11 @@ const App = () => {
 
 Maybe you want to try a demo [demo playground](https://master.d2as2wgeia02l1.amplifyapp.com) .
 
-## Trusted
-
-Our wallet has been trusted by great Sui projects as below:
-
-- [Clutchy](https://clutchy.io/)
-- [Scallop](https://scallop.io/)
-- [Suia](https://suia.io)
-- [MovEx](https://www.movex.exchange/)
-- [SuiSwap](https://suiswap.app/)
-- [Somis.xyz](https://somis.xyz/)
+> Our wallet has been trusted by great Sui projects as below:
+> - [Clutchy](https://clutchy.io/)
+> - [Scallop](https://scallop.io/)
+> - [Suia](https://suia.io)
+> - [MovEx](https://www.movex.exchange/)
+> - [SuiSwap](https://suiswap.app/)
+> - [Somis.xyz](https://somis.xyz/)
 

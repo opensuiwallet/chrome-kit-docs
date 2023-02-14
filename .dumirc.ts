@@ -10,7 +10,7 @@ export default defineConfig({
     nav: [
       { title: 'Guide', link: '/guide' },
       { title: 'Component', link: '/components/wallet-provider' },
-      { title: 'Hooks', link: '/hooks/use-account-balance' },
+      { title: 'Hooks', link: '/hooks/use-wallet' },
       { title: 'Customize', link: '/customize/chain' },
     ],
     footer:

@@ -1,18 +1,15 @@
 ---
-order: 2
+order: 3
 ---
 
 # useSuiProvider
 
-## Introduction
-
 This hook is used to provide the Sui `JsonRpcProvider` interface in React Hooks style.
 
-See [`@mysten/sui.js` package on npm](https://www.npmjs.com/package/@mysten/sui.js) or [Sui JSON-RPC](https://docs.sui.io/sui-jsonrpc) for more information.
+> Note that [`@mysten/sui.js` package on npm](https://www.npmjs.com/package/@mysten/sui.js) or [Sui JSON-RPC](https://docs.sui.io/sui-jsonrpc) has more information.
 
-:::tip
-This hook is internally **JUST** importing the `JsonRpcProvider` interface and **implemention** from [`@mysten/sui.js` package](https://www.npmjs.com/package/@mysten/sui.js). What we do is caring about versioning, state management, and other stuffs for you.
-:::
+This hook is internally **JUST** importing the `JsonRpcProvider` interface and **implemention** from [`@mysten/sui.js` package](https://www.npmjs.com/package/@mysten/sui.js). 
+What we do is caring about versioning, state management, and other stuffs for you.
 
 ```
 import { useSuiProvider } from "@opensui/wallet-kit";
@@ -35,13 +32,10 @@ The `JsonRpcProvider` interface provided by [`@mysten/sui.js` package on npm](ht
 
 ### Using cURL to call Sui JSON-RPC
 
-Sui JSON-RPC defines a low-level API to interact with the Sui blockchain. In order to call this RPC, you need to know the RPC endpoint and the RPC method detials (request and response). For example, to call the `sui_executeTransaction` method, you need to write the following code:
+Sui JSON-RPC defines a low-level API to interact with the Sui blockchain. In order to call this RPC, you need to know the RPC endpoint and the RPC method details (request and response). For example, to call the `sui_executeTransaction` method, you need to write the following code:
 
-:::caution
-The code below is from [Sui JSON-RPC on GitHub](https://github.com/MystenLabs/sui/blob/main/doc/src/build/json-rpc.md).
-
-For demonstration purpose, we use cURL to call the RPC. You can use any HTTP client to call the RPC.
-:::
+> The code below is from [Sui JSON-RPC on GitHub](https://github.com/MystenLabs/sui/blob/main/doc/src/build/json-rpc.md).
+> For demonstration purpose, we use cURL to call the RPC. You can use any HTTP client to call the RPC.
 
 ```bash
 curl --location --request POST https://fullnode.devnet.sui.io:443 \

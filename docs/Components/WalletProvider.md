@@ -23,7 +23,7 @@ function Root() {
 ReactDOM.render(<Root />, docoument.getElementById("root"));
 ```
 
-After that, you can custom [chain](/customize/chain), or called network and custom the default [wallet list](/customize/wallet-list) as you like.
+After that, you can customize [chain](/customize/chain), or called network and customize the default [wallet list](/customize/wallet-list) as you like.
 
 
 ## Props
