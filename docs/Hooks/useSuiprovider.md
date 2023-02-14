@@ -52,7 +52,7 @@ curl --location --request POST https://fullnode.devnet.sui.io:443 \
 
 ### Using the JsonRpcProvider interface
 
-But if you use the `JsonRpcProvider` provided by `useSuiProvider`, you can call the `sui_executeTransaction` RPC in a more convenient way:
+If you use the `JsonRpcProvider` provided by `useSuiProvider`, you can call the `sui_executeTransaction` RPC in a more convenient way:
 
 ```
 function YourComponent() {
@@ -61,9 +61,9 @@ function YourComponent() {
   return (
     <div
       onClick={async () => {
-        // ... some code to get the tx_bytes, signature, and pub_key
+        // ... 
         const resp = await executeTransaction(txnBytes, signatureScheme, signature, pubkey);
-        // resp is the response from the RPC, and has detailed typings defination
+        // ...
       }}
     >...</div>
   );
