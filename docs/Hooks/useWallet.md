@@ -4,7 +4,9 @@ order: 1
 
 # useWallet
 
-Maybe `useWallet` is the most useful [React Hook]((https://reactjs.org/docs/hooks-intro.html)). You can get properties and call functions of a connected wallet before [WalletProvider](/docs/components/walletprovider) fetch all the properties and functions. Don't forget to run it in a React component under `WalletProvider`.
+Maybe `useWallet` is the most useful [React Hook]((https://reactjs.org/docs/hooks-intro.html)). You can get properties and call functions of a connected wallet before [WalletProvider](/docs/components/walletprovider) fetch all the properties and functions. 
+
+Don't forget to run it in a React component under `WalletProvider`.
 
 ## Usage
 
@@ -66,7 +68,9 @@ function App() {
 
 #### Sign Message
 
-[Message signing](https://en.bitcoin.it/wiki/Message_signing#:~:text=Message%20signing%20is%20the%20action,they%20correspond%20to%20each%20other.) is an important action to **verify whether an approval is confirmed by the owner of an account**. Here is an example for signing a simple message "OpenSui Kit".
+[Message signing](https://en.bitcoin.it/wiki/Message_signing#:~:text=Message%20signing%20is%20the%20action,they%20correspond%20to%20each%20other.) is an important action to **verify whether an approval is confirmed by the owner of an account**. 
+
+Here is an example for signing a simple message "OpenSui Kit".
 
 > Notice that all the params are Uint8Array (i.e. bytes) type. For browser app, you can use [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder) to encode and decode.
 
@@ -87,7 +91,6 @@ function App() {
       
       console.log('sign message success', result)
 
-      // use tweetnacl library to verify whether the signature matches the publicKey of the account.
 			const isSignatureTrue = tweetnacl.sign.detached.verify(
         result.signedMessage,
         result.signature,
@@ -120,7 +123,7 @@ function App() {
 
   useEffect(() => {
     if (!wallet.connected) return;
-    console.log("listen to chainChange event only");
+    
     const off = wallet.on("chainChange", ({ chain }) => {
       console.log("chainChange", chain);
     });
@@ -131,13 +134,13 @@ function App() {
 }
 ```
 
-#### Get real-time connected chain (network) of wallet
+#### Get real-time connected chain of wallet
 
 You can get the current connected chain of wallet, also if user switches network inside the wallet, the value would get updated (so-called real-time).
 
-> By default, the "chain" initial value would be the first value of configured "chains".
-> if a wallet doesn't support wallet-standard "change" event., the "chain" value would not change!
-> If a wallet does not report its network when connecting, the "chain" value might not be correctly synced!
+> * By default, the "chain" initial value would be the first value of configured "chains".
+> * if a wallet doesn't support wallet-standard "change" event., the "chain" value would not change!
+> * If a wallet does not report its network when connecting, the "chain" value might not be correctly synced!
 
 
 ```
@@ -179,10 +182,9 @@ The connection status of wallet.
 ```
 const { status, connected, connecting } = useWallet();
 
-// the assert expressions are equally the same
-assert(status === "disconnected", !connecting && !connected); // not connect to wallet
-assert(status === "connecting", connecting); // now connecting to the wallet
-assert(status === "connected", connected); // connected to the wallet
+assert(status === "disconnected", !connecting && !connected);
+assert(status === "connecting", connecting);
+assert(status === "connected", connected); 
 ```
 
 #### account
@@ -251,12 +253,6 @@ Configuration of supported chains from WalletProvider
 
 Current connected chain of wallet.
 
-Might not be synced with the wallet if the wallet doesn't support wallet-standard "change" event.
-
-| Type   | Default                                                                                 |
-| ------ | --------------------------------------------------------------------------------------- |
-| string | the first value of configured [chains](./#chains) or [UnknownChain](/customize/types/#Chain) |
-
 #### adapter
 
 The adapter normalized from the raw adapter of the connected wallet. You can call all the properties and functions on it, which is followed the [@mysten/wallet-standard](https://github.com/MystenLabs/sui/tree/main/sdk/wallet-adapter/packages/wallet-standard)
@@ -267,7 +263,7 @@ The adapter normalized from the raw adapter of the connected wallet. You can cal
 
 #### signAndExecuteTransaction
 
-The universal function to send and execute transaction via connected wallet. For all the types of signable transaction, see [Sui official repo ](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98) 💡
+The universal function to send and execute transaction via connected wallet. For all the types of signable transaction, see [Sui official repo ](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98).
 
 | Type                                                                                              | Default |
 | ------------------------------------------------------------------------------------------------- | ------- |
@@ -277,11 +273,7 @@ The universal function to send and execute transaction via connected wallet. For
 
 The function for message signing.
 
-:::caution
-
-Since this is a experimental feature, not all the wallet has implemented. Check [Can I Use](/docs/CanIUse) for further information.
-
-:::
+> Since this is an experimental feature, not all the wallet has implemented.
 
 | Type                                                                                             | Default |
 | ------------------------------------------------------------------------------------------------ | ------- |

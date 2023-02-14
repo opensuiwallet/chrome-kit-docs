@@ -4,52 +4,44 @@ order: 4
 
 # Style Theme
 
-## Import default CSS
-
-You need to import the default CSS file to use the default styles.
-
-:::tip
-You may need a proper CSS loader to import CSS files. See [Webpack](https://webpack.js.org/loaders/css-loader/) or [Vite](https://vitejs.dev/guide/features.html#css) for more information.
-:::
-
-For example, import the default css file in the `src/index.jsx` file:
+You need to import the default CSS in the `src/index.jsx` file to use the default styles.
 
 ```
 import * as React from "react";
-import "@opensui/wallet-kit/style.css"; // Add this line to your code
+import "@opensui/wallet-kit/style.css"; // default styles
 
 // Your Application code below
-function App() {
-  return <div>...</div>;
-}
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <WalletProvider>
+    <App />
+    //...
+  </WalletProvider>
+);
 ```
 
-# CSS Customize & Theme
+If you want to customize the theme of the components, use CSS variables to define colors and other styles like below.
 
-## CSS Variables
-
-This section describes how to use CSS variables to customize the theme of the components.
-
-We use CSS variables to define colors and other styles like below:
-
-```css
+```scss
 :root {
-  --wkit-accent-hs: 210, 100%;
-  --wkit-on-accent-rgb: 255, 255, 255;
-  --wkit-bg-rgb: 239, 241, 245;
-  --wkit-on-bg-rgb: 10, 14, 34;
-  --wkit-font-family: "Inter", sans-serif;
-  --wkit-font-family-mono: "IBM Plex Mono", monospace;
-  --wkit-font-size-large: 18px;
-  --wkit-font-size-medium: 16px;
-  --wkit-font-size-small: 14px;
-  --wkit-line-height-large: 22px;
-  --wkit-line-height-medium: 20px;
-  --wkit-line-height-small: 17px;
-  --wkit-button-width: 284px;
-  --wkit-border-radius: 16px;
+  --wkit-accent-hs: 110, 100%; // override accent color
+
+  ... // other CSS variables
 }
+
+.wkit-button {
+  height: 80px; // override the height of the button
+}
+
+//...
 ```
+
+Your customized css file must be imported **after** the default CSS file.
+
+```
+import "@opensui/wallet-kit/dist/style.css";
+import "./opensui-wallet-kit-custom.css";
+```
+
 
 Below is a list of all CSS variables that you can use as public API to customize the look of the components.
 
@@ -69,86 +61,3 @@ Below is a list of all CSS variables that you can use as public API to customize
 | `--wkit-line-height-small`  | The line-height of the components (S).                 | `17px`                       |
 | `--wkit-button-width`       | The width of the button.                               | `284px`                      |
 | `--wkit-border-radius`      | The border radius of the components.                   | `16px`                       |
-
-Default Values:
-
-After figuring out the CSS variables you want to customize, you can override them in your own CSS file, like below:
-
-```scss
-:root {
-  --wkit-accent-hs: 110, 100%; // Redefine the hs (the first two components of hsl) of the accent color
-
-  ... // other CSS variables
-}
-```
-
-Import the default CSS file and your own CSS file in your application.
-
-:::tip
-The CSS variables must be imported / declared **AFTER** the default CSS file.
-:::
-
-For example, in the `src/index.jsx` file:
-
-```
-import "@opensui/wallet-kit/dist/style.css";
-import "./opensui-wallet-kit-custom.css"; // You CSS file here
-```
-
-## Override (Not recommended)
-
-When CSS variables are not enough, you can customize the styles by importing the CSS file and overriding our default CSS rules.
-
-:::caution
-**Override our default CSS rules is not recommended because it is not easy to maintain.** If you have any questions or feature requests, please contact us.
-:::
-
-Fellow the steps below to customize the styles:
-
-First, figure out the CSS class name of the component you want to customize. For example, the CSS class name of the `ConnectButton` component is `wkit-button`.
-
-Then override the styles in your own CSS file.
-
-```scss
-.wkit-button {
-  height: 64px; // For example, override the height of the button
-}
-```
-
-And last, import the default CSS file and your own CSS file in your application.
-
-:::tip
-Your CSS rules must be imported / declared **AFTER** the default CSS file.
-:::
-
-For example, in the `src/index.jsx` file:
-
-```
-import "@opensui/wallet-kit/dist/style.css";
-import "./opensui-wallet-kit-custom.css"; // You css file here
-```
-
-# Dark Mode
-
-With the help of CSS variables, you can easily customize the theme of the components to support dark mode.
-
-You can override color-related CSS variables under the `@media (prefers-color-scheme: dark)` media query to support dark mode like below:
-
-<!-- :::tip
-You may also defined dark mode theme under the `[data-theme='dark']:root` selector, as it is a common practice in the web2 development community.
-::: -->
-
-:::tip
-Rules about dark mode must be imported / declared **AFTER** the default CSS file.
-:::
-
-```scss
-@media (prefers-color-scheme: dark) {
-  :root {
-    --wkit-accent-hs: 166, 91%;
-    --wkit-on-accent-rgb: 255, 255, 255;
-    --wkit-bg-rgb: 40, 40, 40;
-    --wkit-on-bg-rgb: 241, 241, 241;
-  }
-}
-```

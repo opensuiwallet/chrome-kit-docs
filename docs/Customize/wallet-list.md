@@ -4,17 +4,11 @@ order: 2
 
 # Customize Wallet list
 
-You can configure your wallet list on the select modal by passing `defaultWallets` throught `<WalletProvider />`.
+Follow this example to configure your wallet list on the select modal. We've prepared a set of wallets as below that you can import directly, also you can customize new wallet items. By default, we include all of them.
 
-We've prepared a set of [preset wallets](../CanIUse#preset-wallets) that you can import directly, also you can customize new wallet items. By default, we include all the preset wallets.
-
-## Default Usage
-
-:::tip
-
-All the `defaultWallets` will be listed in the Popular section on the wallet-select modal.
-
-:::
+> - [Sui Wallet](https://chrome.google.com/webstore/detail/sui-wallet/opcgpfmipidbgpenhmajoajpbobppdil)
+> - [Ethos Wallet](https://chrome.google.com/webstore/detail/ethos-sui-wallet/mcbigmjiafegjnnogedioegffbooigli)
+> Note that all the `defaultWallets` will be listed in the other section on the wallet-select modal.
 
 ```
 import {
@@ -28,43 +22,18 @@ import {
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <WalletProvider defaultWallets={[
-      // order defined by you
-      OpenSuiWallet,
       SuiWallet,
       EthosWallet,
       // ...
     ]}>
-    {/* or just leave it as default which contains all preset wallets */}
-    {/*<WalletProvider>*/}
+      //...
       <App />
     </WalletProvider>
   </React.StrictMode>
 )
 ```
 
-## Using Hook Only
-
-If you use our `useWallet` hook only and have a customized wallet-select modal, then you can access configured wallet list by `configuredWallets` from `useWallet`. Also we provide `detectedWallets` for those wallets which are not preconfigured but detected from user browser.
-
-```
-// make sure this code is under <WalletProvider />
-
-function App() {
-  const { configuredWallets, detectedWallets } = useWallet();
-
-  return (
-    <>
-      <CustomizedWalletModal
-        list={[...configuredWallets, ...detectedWallets]}
-      />
-    </>
-  );
-}
-```
-
-## Define New Wallet
-
-If our wallet presets do not cover the wallets you need, you can simply define it using our `defineWallet` function.
+You can simply define it using our `defineWallet` function if default wallet presets do not cover the wallets you need.
 
 ```
 import {
@@ -72,7 +41,7 @@ import {
   defineWallet,
 } from '@opensui/wallet-kit';
 
-// customized wallet must support @mysten/wallet-standard
+// defineWallet wallet must support @mysten/wallet-standard
 const CustomizeWallet = defineWallet({
   name: "myWallet",
   iconUrl: "external url or data url",

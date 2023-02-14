@@ -4,11 +4,44 @@ order: 2
 
 # useAccountBalance
 
+## Usage
+
+The balance's type is string. If you want to use balance to calculate, you should convert it to bigint or number.
+
+```
+import { useEffect } from 'react';
+import { useAccountBalance } from '@opensui/wallet-kit';
+
+interface AccountBalanceResponse {
+  error: Error | null;
+  loading: boolean;
+  balance: string;
+}
+
+function App() {
+  const { error, loading, balance } = useAccountBalance();
+
+  useEffect(() => {
+    if (Number(balance) > 1000000) {
+      console.log('You have a million');
+    }
+  }, [balance]);
+
+  return (
+    <div>
+      <div>fetch balance loading status: {loading}</div>
+      <div>fetch account balance: {balance}</div>
+    </div>
+  );
+}
+```
+
+## API
+
 You can use `useAccountBalance` hooks to directly get the balance, loading status and error information of the current account under the current network.
 
 > If error is not null, it means fetch balance failed. In this case, the balance will set to be 0.
 
-## API
 
 | Properties | Description                                           | Type          | Default |
 | ---------- | ----------------------------------------------------- | ------------- | ------- |
@@ -35,40 +68,6 @@ function App() {
       <div>{loading && <Spin />}</div>
       <div>{balance}</div>
     </>
-  );
-}
-```
-
-#### balance
-
-The balance's type is string. If you want to use balance to calculate, you should convert it to bigint or number.
-
-In some case, the balance can be bigger than Number.MAX_SAFE_INTEGER(2^53 - 1). If your project support Bigint(https://caniuse.com/?search=Bigint), you can directly use `BigInt` method to convert, otherwise, use some lib to calculation bigint.
-
-```
-import { useEffect } from 'react';
-import { useAccountBalance } from '@opensui/wallet-kit';
-
-interface AccountBalanceResponse {
-  error: Error | null;
-  loading: boolean;
-  balance: string;
-}
-
-function App() {
-  const { error, loading, balance } = useAccountBalance();
-
-  useEffect(() => {
-    if (Number(balance) > 1000000) {
-      console.log('You have a million');
-    }
-  }, [balance]);
-
-  return (
-    <div>
-      <div>fetch balance loading status: {loading}</div>
-      <div>fetch account balance: {balance}</div>
-    </div>
   );
 }
 ```

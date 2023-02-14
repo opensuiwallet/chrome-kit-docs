@@ -4,7 +4,7 @@ order: 1
 
 # Configure Chain
 
-You can configure the supported chains (networks) for your dapp.
+Follow this example to configure the supported chains. If you provide a custom chain, please make sure that Sui support it.
 
 ```
 import {
@@ -22,12 +22,10 @@ const customChain: Chain = {
 };
 
 const SupportedChains: Chain[] = [
-  // ...DefaultChains,
   SuiDevnetChain,
   SuiTestnetChain,
-  // NOTE: you can add custom chain (network),
-  // but make sure the connected wallet does support it
-  // customChain,
+  
+  customChain,
 ];
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(

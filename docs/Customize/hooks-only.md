@@ -4,32 +4,14 @@ order: 3
 
 # Hooks Only
 
-This section will introduce how to only use the provided hooks.
+Let's learn how to use the provided hooks only. It's useful for you to customize our UI components together with our hooks.
 
-It could be useful when you want to customize your UI components together with our hooks.
+> Don't forget to wrap our app using `WalletProvider`. The WalletProvider component provides the context of data and functions.
 
-### Customize your UI components with Kit Hooks
+You should give two block in page for displaying :
 
-Firstly, add `WalletProvider` to wrap your App. The WalletProvider component provides the context of data and functions.
-
-> For customizing the default wallet list, check [WalletProvider](/docs/components/WalletProvider#customize-your-wallet-list-on-modal)
-
-```
-import { WalletProvider } from "@opensui/wallet-kit";
-
-function RootComponent() {
-  return (
-    <WalletProvider>
-      <App />
-    </WalletProvider>
-  );
-}
-```
-
-Next, you are supposed to have **a connect button for wallet connection** and **a display area for account info after connection**.
-
-In this case, you can manage these two components by `connected` status from `useWallet` hook.
-And get active account address after connected.
+* **a connect button for wallet connection** 
+* **account info after connection**
 
 ```
 import { useWallet } from "@opensui/wallet-kit";
@@ -50,28 +32,32 @@ function App() {
 }
 ```
 
-For your wallet-select modal component, let's just call it WalletSelector.
-
-You can use `select` method from `useWallet` hook to connect the one of the SUI wallets.
+Using `select` method from `useWallet` hook to connect the one of the SUI wallets for your wallet-select modal component.
 
 ```
 import { useWallet } from "@opensui/wallet-kit";
 
 function WalletSelector() {
   const {
-    select, // select
-    configuredWallets, // default wallets
-    detectedWallets, // Sui-standard wallets detected from browser env
-    allAvailableWallets, // all the installed Sui-standard wallets
+    select,
+    
+    // default wallets
+    configuredWallets, 
+    
+    // Sui-standard wallets detected from browser
+    detectedWallets, 
+    
+     // all the installed Sui-standard wallets
+    allAvailableWallets,
   } = useWallet();
 
   return [...configuredWallets, ...detectedWallets].map((wallet) => (
     <button
       key={wallet.name}
       onClick={() => {
-        // check if user installed the wallet
+        // if user has not install the wallet, provide a guiding  to install
         if (!wallet.installed) {
-          // do something like guiding users to install
+          //...
           return;
         }
         select(wallet.name);
