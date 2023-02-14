@@ -68,20 +68,8 @@ const App = () => {
 
   useEffect(() => {
     if (!wallet.connected) return;
-    console.log('connected wallet name: ', wallet.name)
-    console.log('account address: ', wallet.account?.address)
-    console.log('account publicKey: ', wallet.account?.publicKey)
+    console.log('connected wallet info: ', wallet)
   }, [wallet.connected])
-
-  async function handleExecuteMoveCall() {
-    await wallet.executeMoveCall(/*...*/);
-  }
-  async function handleExecuteTransaction() {
-    await wallet.signAndExecuteTransaction(/*...*/);
-  }
-  async function handleSignMessage() {
-    await wallet.signMessage(/*...*/);
-  }
 
   /*return (<.../>)*/
 };
