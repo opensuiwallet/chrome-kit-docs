@@ -2,6 +2,8 @@
 order: 2
 ---
 
+# Customize Wallet list
+
 You can configure your wallet list on the select modal by passing `defaultWallets` throught `<WalletProvider />`.
 
 We've prepared a set of [preset wallets](../CanIUse#preset-wallets) that you can import directly, also you can customize new wallet items. By default, we include all the preset wallets.

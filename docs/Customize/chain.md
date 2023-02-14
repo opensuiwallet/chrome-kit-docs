@@ -2,6 +2,8 @@
 order: 1
 ---
 
+# Configure Chain
+
 You can configure the supported chains (networks) for your dapp.
 
 ```

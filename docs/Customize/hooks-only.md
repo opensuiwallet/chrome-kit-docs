@@ -2,6 +2,8 @@
 order: 3
 ---
 
+# Hooks Only
+
 This section will introduce how to only use the provided hooks.
 
 It could be useful when you want to customize your UI components together with our hooks.
@@ -80,5 +82,3 @@ function WalletSelector() {
   ));
 }
 ```
-
-T

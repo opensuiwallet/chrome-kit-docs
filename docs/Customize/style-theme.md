@@ -1,6 +1,28 @@
 ---
-order: 2
+order: 4
 ---
+
+# Style Theme
+
+## Import default CSS
+
+You need to import the default CSS file to use the default styles.
+
+:::tip
+You may need a proper CSS loader to import CSS files. See [Webpack](https://webpack.js.org/loaders/css-loader/) or [Vite](https://vitejs.dev/guide/features.html#css) for more information.
+:::
+
+For example, import the default css file in the `src/index.jsx` file:
+
+```
+import * as React from "react";
+import "@opensui/wallet-kit/style.css"; // Add this line to your code
+
+// Your Application code below
+function App() {
+  return <div>...</div>;
+}
+```
 
 # CSS Customize & Theme
 
@@ -104,4 +126,29 @@ For example, in the `src/index.jsx` file:
 ```
 import "@opensui/wallet-kit/dist/style.css";
 import "./opensui-wallet-kit-custom.css"; // You css file here
+```
+
+# Dark Mode
+
+With the help of CSS variables, you can easily customize the theme of the components to support dark mode.
+
+You can override color-related CSS variables under the `@media (prefers-color-scheme: dark)` media query to support dark mode like below:
+
+<!-- :::tip
+You may also defined dark mode theme under the `[data-theme='dark']:root` selector, as it is a common practice in the web2 development community.
+::: -->
+
+:::tip
+Rules about dark mode must be imported / declared **AFTER** the default CSS file.
+:::
+
+```scss
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wkit-accent-hs: 166, 91%;
+    --wkit-on-accent-rgb: 255, 255, 255;
+    --wkit-bg-rgb: 40, 40, 40;
+    --wkit-on-bg-rgb: 241, 241, 241;
+  }
+}
 ```

@@ -1,22 +1,12 @@
 ---
-order: 2
+order: 3
 ---
 
 # ConnectModal
 
-## Description
+`ConnectModal` is a nicely designed wallet-select modal for wallet selection. Usually you won't need to import it because we hide it inside our `ConnectButton`. However, if  you want to customize your own ConnectButton, please use our connect modal.
 
-ConnectModal is a nicely designed wallet-select modal for wallet selection.
-
-:::tip
-
-Usually you won't need to import it because we hide it inside our ConnectButton. Unless you want to customize your own ConnectButton along with our connect modal.
-
-:::
-
-## Examples
-
-Here is an example for you to use with your own connect button.
+## Usage
 
 ```
 import { useWallet, ConnectModal } from '@opensui/wallet-kit';
@@ -26,24 +16,21 @@ function App() {
   const [showModal, setShowModal] = useState(false)
 
   if (connected) {
-    return <YourComponent />
+    return <... />
   }
   return (
-    // wrap your own button as the trigger of the modal
     <ConnectModal
       open={showModal}
       onOpenChange={(open) => setShowModal(open)}
     >
-      <YourOwnButton />
+      <... />
     </ConnectModal>
   )
 }
 
 ```
 
-## API
-
-### Props
+## Props
 
 | Properties   | Description                     | Type                    | Default |
 | ------------ | ------------------------------- | ----------------------- | ------- |

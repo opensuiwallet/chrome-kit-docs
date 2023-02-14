@@ -1,6 +1,5 @@
 ---
-title: Types
-sidebar_position: 7
+order: 5
 ---
 
 ## Types of Sui SDK
