@@ -8,7 +8,7 @@ Follow this example to configure the supported chains. If you provide a custom c
 
 ```
 import {
-  WalletProvider,
+  WalletKitProvider,
   Chain,
   SuiDevnetChain,
   SuiTestnetChain,
@@ -30,9 +30,9 @@ const SupportedChains: Chain[] = [
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <WalletProvider chains={SupportedChains}>
+    <WalletKitProvider chains={SupportedChains}>
       <App />
-    </WalletProvider>
+    </WalletKitProvider>
   </React.StrictMode>
 );
 ```

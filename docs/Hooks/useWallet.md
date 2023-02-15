@@ -2,19 +2,19 @@
 order: 1
 ---
 
-# useWallet
+# useWalletKit
 
-Maybe `useWallet` is the most useful [React Hook]((https://reactjs.org/docs/hooks-intro.html)). You can get properties and call functions of a connected wallet before [WalletProvider](/docs/components/walletprovider) fetch all the properties and functions. 
+Maybe `useWalletKit` is the most useful [React Hook]((https://reactjs.org/docs/hooks-intro.html)). You can get properties and call functions of a connected wallet before [WalletKitProvider](/docs/components/walletprovider) fetch all the properties and functions. 
 
-Don't forget to run it in a React component under `WalletProvider`.
+Don't forget to run it in a React component under `WalletKitProvider`.
 
 ## Usage
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
   console.log("wallet status", wallet.status);
 }
 ```
@@ -26,10 +26,10 @@ There are many types of [signable transaction](https://github.com/MystenLabs/sui
 Here is a simple example for nft minting that invoke `moveCall` transaction, refers to [sample contract of Sui](https://examples.sui.io/samples/nft.html).
 
 ```
-import {useWallet} from '@opensui/wallet-kit'
+import {useWalletKit} from '@opensui/wallet-kit'
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   async function handleSignAndExecuteTx() {
 		if (!wallet.connected) return
@@ -72,11 +72,11 @@ function App() {
 You can listen to the event from wallet app, such as network switching, account switching. Take network switching event as an example:
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 import * as tweetnacl from "tweetnacl";
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   useEffect(() => {
     if (!wallet.connected) return;
@@ -100,11 +100,11 @@ Here is an example for signing a simple message "OpenSui Kit".
 > Use [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder) to encode and decode when in a web app.
 
 ```
-import {useWallet} from '@opensui/wallet-kit'
+import {useWalletKit} from '@opensui/wallet-kit'
 import * as tweetnacl from 'tweetnacl'
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   async function handleSignMsgEvent() {
     try {
@@ -142,11 +142,11 @@ If you want to get current connected chain of wallet, you can use `wallet.chain`
 I f a wallet doesn't support  [Sui wallet-standard](https://github.com/MystenLabs/sui/tree/main/sdk/wallet-adapter/packages/wallet-standard) "change" event, the `wallet.chain` value would not change.
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 import * as tweetnacl from "tweetnacl";
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   useEffect(() => {
     if (!wallet.connected) return;
@@ -178,7 +178,7 @@ The connection status of wallet.
 | status     | 'disconnected' \| 'connecting' \| 'connected' | 'disconnected' |
 
 ```
-const { status, connected, connecting } = useWallet();
+const { status, connected, connecting } = useWalletKit();
 console.log(status, connecting, connecting)
 ```
 
@@ -191,7 +191,7 @@ Account info in the connected wallet, including address, publicKey etc.
 | [WalletAccount](/customize/types#WalletAccount) | undefined |
 
 ```
-const { connected, account } = useWallet();
+const { connected, account } = useWalletKit();
 
 function getAccountInfo() {
   if (!connected) return;
@@ -222,10 +222,10 @@ Get all the accessible accounts returned by wallet.
 The getAccounts will get the current wallet's account address. Now one wallet only have one account.
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 
 function YourComponent() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   function handleGetAccounts() {
     if (!wallet.connected) return;
@@ -239,7 +239,7 @@ function YourComponent() {
 
 #### chains
 
-Configuration of supported chains from WalletProvider
+Configuration of supported chains from WalletKitProvider
 
 | Type                          | Default                             |
 | ----------------------------- | ----------------------------------- |

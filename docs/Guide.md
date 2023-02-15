@@ -16,17 +16,17 @@ pnpm install @opensui/wallet-kit
 
 ## Wrap
 
-Use our `WalletProvider` to wrap your `<App />` as below.
+Use our `WalletKitProvider` to wrap your `<App />` as below.
 
 ```
-import { WalletProvider } from "@opensui/wallet-kit";
+import { WalletKitProvider } from "@opensui/wallet-kit";
 import "@opensui/wallet-kit/style.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <WalletProvider>
+  <WalletKitProvider>
     <App />
     //...
-  </WalletProvider>
+  </WalletKitProvider>
 );
 ```
 
@@ -55,10 +55,10 @@ Once your dapp has been connected to a wallet that supports [Sui wallet-standard
 there are many wallet capabilities you can call by hoos.
 
 ```
-import { useWallet, useAccountBalance } from '@opensui/wallet-kit';
+import { useWalletKit, useAccountBalance } from '@opensui/wallet-kit';
 
 const App = () => {
-  const wallet = useWallet()
+  const wallet = useWalletKit()
   const { balance } = useAccountBalance();
 
   useEffect(() => {
@@ -81,7 +81,6 @@ const App = () => {
 Maybe you want to try a demo [demo playground](https://master.d2as2wgeia02l1.amplifyapp.com) .
 
 > Our wallet has been trusted by great Sui projects as below:
-> - [Clutchy](https://clutchy.io/)
 > - [Scallop](https://scallop.io/)
 > - [Suia](https://suia.io)
 > - [MovEx](https://www.movex.exchange/)

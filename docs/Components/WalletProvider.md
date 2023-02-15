@@ -2,22 +2,22 @@
 order: 1
 ---
 
-# WalletProvider
+# WalletKitProvider
 
-We support a `WalletProvider` using [React Context API](https://reactjs.org/docs/context.html#contextprovider) to provide the essential data and functions.
-Meanwhile, if you want to customize our kit, you must start here. It means you need to wrap all the kit hooks and components under `WalletProvider` before you start to use them.
+We support a `WalletKitProvider` using [React Context API](https://reactjs.org/docs/context.html#contextprovider) to provide the essential data and functions.
+Meanwhile, if you want to customize our kit, you must start here. It means you need to wrap all the kit hooks and components under `WalletKitProvider` before you start to use them.
 
 ## Usage
 
 ```
 import ReactDOM from "react-dom";
-import { WalletProvider } from "@opensui/wallet-kit";
+import { WalletKitProvider } from "@opensui/wallet-kit";
 
 function Root() {
-  <WalletProvider>
+  <WalletKitProvider>
     <App />
     //...
-  </WalletProvider>;
+  </WalletKitProvider>;
 }
 
 ReactDOM.render(<Root />, docoument.getElementById("root"));

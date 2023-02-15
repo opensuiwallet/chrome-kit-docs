@@ -11,10 +11,10 @@ import * as React from "react";
 import "@opensui/wallet-kit/style.css"; // default styles
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <WalletProvider>
+  <WalletKitProvider>
     <App />
     //...
-  </WalletProvider>
+  </WalletKitProvider>
 );
 ```
 

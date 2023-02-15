@@ -6,7 +6,7 @@ order: 3
 
 Let's learn how to use the provided hooks only. It's useful for you to customize our UI components together with our hooks.
 
-> Don't forget to wrap our app using `WalletProvider`. The WalletProvider component provides the context of data and functions.
+> Don't forget to wrap our app using `WalletKitProvider`. The WalletKitProvider component provides the context of data and functions.
 
 You should give two block in page for displaying :
 
@@ -14,11 +14,11 @@ You should give two block in page for displaying :
 * Account info after connection
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 import { useState, useEffect } from "react";
 
 function App() {
-  const wallet = useWallet();
+  const wallet = useWalletKit();
 
   return (
     <div>
@@ -32,10 +32,10 @@ function App() {
 }
 ```
 
-Using `select` method from `useWallet` hook to connect the one of the SUI wallets for your wallet-select modal component.
+Using `select` method from `useWalletKit` hook to connect the one of the SUI wallets for your wallet-select modal component.
 
 ```
-import { useWallet } from "@opensui/wallet-kit";
+import { useWalletKit } from "@opensui/wallet-kit";
 
 function WalletSelector() {
   const {
@@ -49,7 +49,7 @@ function WalletSelector() {
     
      // all the installed Sui-standard wallets
     allAvailableWallets,
-  } = useWallet();
+  } = useWalletKit();
 
   return [...configuredWallets, ...detectedWallets].map((wallet) => (
     <button

@@ -12,7 +12,7 @@ Follow this example to configure your wallet list on the select modal. We've pre
 
 ```
 import {
-  WalletProvider,
+  WalletKitProvider,
   OpenSuiWallet,
   SuiWallet,
   EthosWallet,
@@ -21,14 +21,14 @@ import {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <WalletProvider defaultWallets={[
+    <WalletKitProvider defaultWallets={[
       SuiWallet,
       EthosWallet,
       // ...
     ]}>
       //...
       <App />
-    </WalletProvider>
+    </WalletKitProvider>
   </React.StrictMode>
 )
 ```
@@ -37,7 +37,7 @@ You can simply define it using our `defineWallet` function if default wallet pre
 
 ```
 import {
-  WalletProvider,
+  WalletKitProvider,
   defineWallet,
 } from '@opensui/wallet-kit';
 
@@ -52,12 +52,12 @@ const CustomizeWallet = defineWallet({
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <WalletProvider defaultWallets={[
+    <WalletKitProvider defaultWallets={[
       CustomizeWallet,
       // ...
     ]}>
       <App />
-    </WalletProvider>
+    </WalletKitProvider>
   </React.StrictMode>
 )
 ```

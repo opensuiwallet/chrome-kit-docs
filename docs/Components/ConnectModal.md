@@ -9,10 +9,10 @@ order: 3
 ## Usage
 
 ```
-import { useWallet, ConnectModal } from '@opensui/wallet-kit';
+import { useWalletKit, ConnectModal } from '@opensui/wallet-kit';
 
 function App() {
-  const {connected} = useWallet()
+  const {connected} = useWalletKit()
   const [showModal, setShowModal] = useState(false)
 
   if (connected) {

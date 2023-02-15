@@ -9,15 +9,15 @@ ConnectButton is a component with UI, which has bound events and can be released
 ## Usage
 
 ```
-import { ConnectButton, WalletProvider } from "@opensui/wallet-kit";
+import { ConnectButton, WalletKitProvider } from "@opensui/wallet-kit";
 
 function App() {
   return (
-    <WalletProvider>
+    <WalletKitProvider>
       //...
       <ConnectButton>Connect Wallet</ConnectButton>
       //...
-    </WalletProvider>
+    </WalletKitProvider>
   );
 }
 ```
