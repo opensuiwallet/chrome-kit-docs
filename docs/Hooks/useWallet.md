@@ -90,52 +90,6 @@ function App() {
 }
 ```
 
-### Sign
-
-[Message signing](https://en.bitcoin.it/wiki/Message_signing#:~:text=Message%20signing%20is%20the%20action,they%20correspond%20to%20each%20other.) is an important action to **verify whether an approval is confirmed by the owner of an account**. 
-
-Here is an example for signing a simple message "OpenSui Kit".
-
-> Notice that all the params are Uint8Array (i.e. bytes) type. 
-> Use [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder) to encode and decode when in a web app.
-
-```
-import {useWalletKit} from '@opensui/wallet-kit'
-import * as tweetnacl from 'tweetnacl'
-
-function App() {
-  const wallet = useWalletKit();
-
-  async function handleSignMsgEvent() {
-    try {
-      const message = 'OpenSui Kit!'
-      const result = await wallet.signMessage({
-        message: new TextEncoder().encode(message)
-      })
-      if (!result) return
-      
-      console.log('signed successfully', result)
-
-			const isSigTrue = tweetnacl.sign.detached.verify(
-        result.signedMessage,
-        result.signature,
-        wallet.account?.publicKey as Uint8Array,
-      )
-      
-      console.log('verify signature via tweetnacl', isSigTrue)
-    } catch (e) {
-      console.error('signed failed', e)
-    }
-  }
-
-  return (
-  	<>
-    	<button onClick={handleSignMsgEvent}>Sign Message</button>
-    </>
-  )
-}
-```
-
 ### Chain
 
 If you want to get current connected chain of wallet, you can use `wallet.chain`. When the user switches chain inside the wallet, the value would get updated in real time.
@@ -266,16 +220,6 @@ For all the types of transaction, see [Sui official docs ](https://github.com/My
 | Type                                                                                              | Default |
 | ------------------------------------------------------------------------------------------------- | ------- |
 | `(transaction: SuiSignAndExecuteTransactionInput) => Promise<SuiSignAndExecuteTransactionOutput>` |         |
-
-#### signMessage
-
-The function for message signing.
-
-> Note that this is an experimental feature, not all the wallet has implemented.
-
-| Type                                                                                             | Default |
-| ------------------------------------------------------------------------------------------------ | ------- |
-| `(input: {message: Uint8Array}) => Promise<{ signature: Uint8Array; signedMessage: Uint8Array}>` |         |
 
 #### on
 
