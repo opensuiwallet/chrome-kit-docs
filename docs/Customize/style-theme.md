@@ -10,7 +10,6 @@ You need to import the default CSS in the `src/index.jsx` file to use the defaul
 import * as React from "react";
 import "@opensui/wallet-kit/style.css"; // default styles
 
-// Your Application code below
 ReactDOM.createRoot(document.getElementById("root")).render(
   <WalletProvider>
     <App />

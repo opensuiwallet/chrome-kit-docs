@@ -10,8 +10,8 @@ Let's learn how to use the provided hooks only. It's useful for you to customize
 
 You should give two block in page for displaying :
 
-* **a connect button for wallet connection** 
-* **account info after connection**
+* A connect button for wallet connection
+* Account info after connection
 
 ```
 import { useWallet } from "@opensui/wallet-kit";

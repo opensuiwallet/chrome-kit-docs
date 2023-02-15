@@ -14,6 +14,6 @@ export default defineConfig({
       { title: 'Customize', link: '/customize/chain' },
     ],
     footer:
-      'Powered by <a href="https://opensui.app" target="_blank">OpenSui</a> 2023',
+      'Powered by <a href="https://opensui.app" target="_blank">OpenSui</a> ©2023. All rights reserved.',
   },
 });
