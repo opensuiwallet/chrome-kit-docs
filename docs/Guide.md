@@ -78,7 +78,7 @@ const App = () => {
 
 ## Example
 
-Maybe you want to try a demo [demo playground](https://master.d2as2wgeia02l1.amplifyapp.com) and its [source code](https://github.com/opensuiwallet/wallet-kit/tree/master/playground).
+Maybe you want to try a demo [demo playground](https://master.d1sepqty4ktlu4.amplifyapp.com/) and its [source code](https://github.com/opensuiwallet/wallet-kit/tree/master/playground).
 
 > Our wallet has been trusted by great Sui projects as below:
 > - [Scallop](https://scallop.io/)
