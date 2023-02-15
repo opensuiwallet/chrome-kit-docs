@@ -34,6 +34,6 @@ function App() {
 
 | Properties   | Description                     | Type                    | Default |
 | ------------ | ------------------------------- | ----------------------- | ------- |
-| children     | trigger element for the modal   | ReactNode               | null    |
-| open         | Indicator for opening the modal | boolean                 | false   |
-| onOpenChange | visibility change event         | (open: boolean) => void | --      |
+| children     | Element for the modal   | ReactNode               | null    |
+| open         | Opening the modal | boolean                 | false   |
+| onOpenChange | Change event         | (open: boolean) => void | --      |

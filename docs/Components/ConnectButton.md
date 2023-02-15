@@ -26,6 +26,6 @@ function App() {
 
 | Properties | Description | Type                | Default          |
 | ---------- | ----------- | ------------------- | ---------------- |
-| children   | --          | ReactNode           | 'Connect Wallet' |
-| style      | --          | React.CSSProperties |                  |
-| className  | --          | string              |                  |
+| children   | Text for button | ReactNode           | 'Connect Wallet' |
+| style      | Override button style  | React.CSSProperties |                  |
+| className  | External className | string              |                  |

@@ -19,11 +19,11 @@ function App() {
 }
 ```
 
-#### Execute Transactions
+### Transaction
 
-Sui defines many types of [signable transaction](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98), such as `moveCall`, `transferSui` etc.
+There are many types of [signable transaction](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98) defined by Sui, such as `moveCall`, `transferSui` etc.
 
-Here we use `moveCall` type to implement a simple nft minting example, leveraging the [sample contract of Sui](https://examples.sui.io/samples/nft.html).
+Here is a simple example for nft minting that invoke `moveCall` transaction, refers to [sample contract of Sui](https://examples.sui.io/samples/nft.html).
 
 ```
 import {useWallet} from '@opensui/wallet-kit'
@@ -66,51 +66,8 @@ function App() {
 }
 ```
 
-#### Sign Message
 
-[Message signing](https://en.bitcoin.it/wiki/Message_signing#:~:text=Message%20signing%20is%20the%20action,they%20correspond%20to%20each%20other.) is an important action to **verify whether an approval is confirmed by the owner of an account**. 
-
-Here is an example for signing a simple message "OpenSui Kit".
-
-> Notice that all the params are Uint8Array (i.e. bytes) type. For browser app, you can use [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder) to encode and decode.
-
-```
-import {useWallet} from '@opensui/wallet-kit'
-import * as tweetnacl from 'tweetnacl'
-
-function App() {
-  const wallet = useWallet();
-
-  async function handleSignMsg() {
-    try {
-      const msg = 'OpenSui Kit!'
-      const result = await wallet.signMessage({
-        message: new TextEncoder().encode(msg)
-      })
-      if (!result) return
-      
-      console.log('sign message success', result)
-
-			const isSignatureTrue = tweetnacl.sign.detached.verify(
-        result.signedMessage,
-        result.signature,
-        wallet.account?.publicKey as Uint8Array,
-      )
-      console.log('verify signature with publicKey via tweetnacl', isSignatureTrue)
-    } catch (e) {
-      console.error('sign message failed', e)
-    }
-  }
-
-  return (
-  	<>
-    	<button onClick={handleSignMsg}>Sign Message</button>
-    </>
-  )
-}
-```
-
-#### Add wallet event listener
+### Event
 
 You can listen to the event from wallet app, such as network switching, account switching. Take network switching event as an example:
 
@@ -124,24 +81,65 @@ function App() {
   useEffect(() => {
     if (!wallet.connected) return;
     
-    const off = wallet.on("chainChange", ({ chain }) => {
-      console.log("chainChange", chain);
+    const offEvent = wallet.on("chainChange", ({ chain }) => {
+      console.log("chainChange triggered", chain);
     });
-    return () => {
-      off();
-    };
+    
+    return () =>  offEvent();
   }, [wallet.connected]);
 }
 ```
 
-#### Get real-time connected chain of wallet
+### Sign
 
-You can get the current connected chain of wallet, also if user switches network inside the wallet, the value would get updated (so-called real-time).
+[Message signing](https://en.bitcoin.it/wiki/Message_signing#:~:text=Message%20signing%20is%20the%20action,they%20correspond%20to%20each%20other.) is an important action to **verify whether an approval is confirmed by the owner of an account**. 
 
-> * By default, the "chain" initial value would be the first value of configured "chains".
-> * if a wallet doesn't support wallet-standard "change" event., the "chain" value would not change!
-> * If a wallet does not report its network when connecting, the "chain" value might not be correctly synced!
+Here is an example for signing a simple message "OpenSui Kit".
 
+> Notice that all the params are Uint8Array (i.e. bytes) type. 
+> Use [TextEncoder](https://developer.mozilla.org/en-US/docs/Web/API/TextEncoder) to encode and decode when in a web app.
+
+```
+import {useWallet} from '@opensui/wallet-kit'
+import * as tweetnacl from 'tweetnacl'
+
+function App() {
+  const wallet = useWallet();
+
+  async function handleSignMsgEvent() {
+    try {
+      const message = 'OpenSui Kit!'
+      const result = await wallet.signMessage({
+        message: new TextEncoder().encode(message)
+      })
+      if (!result) return
+      
+      console.log('signed successfully', result)
+
+			const isSigTrue = tweetnacl.sign.detached.verify(
+        result.signedMessage,
+        result.signature,
+        wallet.account?.publicKey as Uint8Array,
+      )
+      
+      console.log('verify signature via tweetnacl', isSigTrue)
+    } catch (e) {
+      console.error('signed failed', e)
+    }
+  }
+
+  return (
+  	<>
+    	<button onClick={handleSignMsgEvent}>Sign Message</button>
+    </>
+  )
+}
+```
+
+### Chain
+
+If you want to get current connected chain of wallet, you can use `wallet.chain`. When the user switches chain inside the wallet, the value would get updated in real time.
+I f a wallet doesn't support  [Sui wallet-standard](https://github.com/MystenLabs/sui/tree/main/sdk/wallet-adapter/packages/wallet-standard) "change" event, the `wallet.chain` value would not change.
 
 ```
 import { useWallet } from "@opensui/wallet-kit";
@@ -181,15 +179,12 @@ The connection status of wallet.
 
 ```
 const { status, connected, connecting } = useWallet();
-
-assert(status === "disconnected", !connecting && !connected);
-assert(status === "connecting", connecting);
-assert(status === "connected", connected); 
+console.log(status, connecting, connecting)
 ```
 
 #### account
 
-The account info in the connected wallet, including address, publicKey etc.
+Account info in the connected wallet, including address, publicKey etc.
 
 | Type                                       | Default   |
 | ------------------------------------------ | --------- |
@@ -198,8 +193,9 @@ The account info in the connected wallet, including address, publicKey etc.
 ```
 const { connected, account } = useWallet();
 
-function printAccountInfo() {
+function getAccountInfo() {
   if (!connected) return;
+  
   console.log(account?.address);
   console.log(account?.publicKey);
 }
@@ -263,7 +259,9 @@ The adapter normalized from the raw adapter of the connected wallet. You can cal
 
 #### signAndExecuteTransaction
 
-The universal function to send and execute transaction via connected wallet. For all the types of signable transaction, see [Sui official repo ](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98).
+The universal function to send and execute transaction via connected wallet. 
+
+For all the types of transaction, see [Sui official docs ](https://github.com/MystenLabs/sui/blob/e45b188a80a067700efdc5a099745f18e1f41aac/sdk/typescript/src/signers/txn-data-serializers/txn-data-serializer.ts#L98).
 
 | Type                                                                                              | Default |
 | ------------------------------------------------------------------------------------------------- | ------- |
@@ -273,7 +271,7 @@ The universal function to send and execute transaction via connected wallet. For
 
 The function for message signing.
 
-> Since this is an experimental feature, not all the wallet has implemented.
+> Note that this is an experimental feature, not all the wallet has implemented.
 
 | Type                                                                                             | Default |
 | ------------------------------------------------------------------------------------------------ | ------- |
@@ -291,7 +289,7 @@ All the wallet events:
 
 | Event         | Listener                                                                               | Description                                               |
 | ------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| chainChange   | `(params: { chain: string }) => void;`                                                 | Emit when wallet app changes its network                  |
+| chainChange   | `(params: { chain: string }) => void;`                                                 | Emit when wallet app changes its chain                  |
 | accountChange | `(params: { account: WalletAccount; }) => void;`                                       | Emit when wallet app changes its account                  |
 | featureChange | `(params: { features: string[]; }) => void;`                                           | Emit when wallet app changes its wallet-standard features |
 | change        | `(params: { chain?: string, account?: WalletAccount; features?: string[]; }) => void;` | Raw change event defined by wallet-standard               |
