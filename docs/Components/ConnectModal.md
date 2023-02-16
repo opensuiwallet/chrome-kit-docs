@@ -2,14 +2,14 @@
 order: 3
 ---
 
-# ConnectModal
+# ConnectWalletModal
 
-`ConnectModal` is a nicely designed wallet-select modal for wallet selection. Usually you won't need to import it because we hide it inside our `ConnectButton`. However, if  you want to customize your own ConnectButton, please use our connect modal.
+`ConnectWalletModal` is a nicely designed wallet-select modal for wallet selection. Usually you won't need to import it because we hide it inside our `ConnectWalletButton`. However, if  you want to customize your own ConnectWalletButton, please use our connect modal.
 
 ## Usage
 
 ```
-import { useWalletKit, ConnectModal } from '@opensui/wallet-kit';
+import { useWalletKit, ConnectWalletModal } from '@opensui/wallet-kit';
 
 function App() {
   const {connected} = useWalletKit()
@@ -19,12 +19,12 @@ function App() {
     return <... />
   }
   return (
-    <ConnectModal
+    <ConnectWalletModal
       open={showModal}
       onOpenChange={(open) => setShowModal(open)}
     >
       <... />
-    </ConnectModal>
+    </ConnectWalletModal>
   )
 }
 

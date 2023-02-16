@@ -32,16 +32,16 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ## Connect
 
-Just place our ui component `<ConnectButton />` to anywhere you like.
+Just place our ui component `<ConnectWalletButton />` to anywhere you like.
 
 ```
-import { ConnectButton } from '@opensui/wallet-kit';
+import { ConnectWalletButton } from '@opensui/wallet-kit';
 
 const App = () => {
   return (
     <>
       <...>
-        <ConnectButton />
+        <ConnectWalletButton />
       </...>
       //...
     </>

@@ -2,20 +2,20 @@
 order: 2
 ---
 
-# ConnectButton
+# ConnectWalletButton
 
-ConnectButton is a component with UI, which has bound events and can be released to the page to directly connect to the wallet plug-in. We recommend using `ConnectButton` component to integrate OpenSui wallet kit. 
+ConnectWalletButton is a component with UI, which has bound events and can be released to the page to directly connect to the wallet plug-in. We recommend using `ConnectWalletButton` component to integrate OpenSui wallet kit. 
 
 ## Usage
 
 ```
-import { ConnectButton, WalletKitProvider } from "@opensui/wallet-kit";
+import { ConnectWalletButton, WalletKitProvider } from "@opensui/wallet-kit";
 
 function App() {
   return (
     <WalletKitProvider>
       //...
-      <ConnectButton>Connect Wallet</ConnectButton>
+      <ConnectWalletButton>Connect Wallet</ConnectWalletButton>
       //...
     </WalletKitProvider>
   );

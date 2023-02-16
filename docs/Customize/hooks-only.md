@@ -25,7 +25,7 @@ function App() {
       {wallet.connected ? (
         <AccountInfo address={wallet?.address} />
       ) : (
-        <ConnectButton />
+        <ConnectWalletButton />
       )}
     </div>
   );
