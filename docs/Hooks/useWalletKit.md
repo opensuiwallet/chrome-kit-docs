@@ -199,7 +199,7 @@ Configuration of supported chains from WalletKitProvider
 | ----------------------------- | ----------------------------------- |
 | [Chain](/customize/types/#Chain)[] | [DefaultChains](/customize/types/#Chain) |
 
-#### chain
+#### connectedChain
 
 Current connected chain of wallet.
 
