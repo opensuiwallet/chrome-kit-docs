@@ -20,7 +20,11 @@ function App() {
             <a className="primary" href={'/guide'}>
               Guide
             </a>
-            <a className="secondary" href={'/'}>
+            <a
+              className="secondary"
+              href={'https://github.com/opensuiwallet/wallet-kit'}
+              target={'_blank'}
+            >
               Github
             </a>
           </div>
