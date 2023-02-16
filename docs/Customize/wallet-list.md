@@ -33,16 +33,16 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 )
 ```
 
-You can simply define it using our `defineWallet` function if default wallet presets do not cover the wallets you need.
+You can simply define it using our `createDefault` function if default wallet presets do not cover the wallets you need.
 
 ```
 import {
   WalletKitProvider,
-  defineWallet,
+  createDefault,
 } from '@opensui/wallet-kit';
 
-// defineWallet wallet must support @mysten/wallet-standard
-const CustomizeWallet = defineWallet({
+// createDefault wallet must support @mysten/wallet-standard
+const CustomizeWallet = createDefault({
   name: "myWallet",
   iconUrl: "external url or data url",
   downloadUrl: {
