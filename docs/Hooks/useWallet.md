@@ -209,7 +209,7 @@ The adapter normalized from the raw adapter of the connected wallet. You can cal
 
 | Type                                         | Default   |           |
 | -------------------------------------------- | --------- | --------- |
-| [IWalletAdapter](/customize/types#IWalletAdapter) |  |  |
+| [MyDefaultWallet](/customize/types#MyDefaultWallet) |  |  |
 
 #### signAndExecuteTransaction
 

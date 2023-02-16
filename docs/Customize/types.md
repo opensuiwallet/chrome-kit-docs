@@ -35,10 +35,10 @@ export const SuiTestnetChain: Chain = {
 export const DefaultChains = [SuiDevnetChain, SuiTestnetChain];
 ```
 
-## IDefaultWallet
+## MyDefaultWallet
 
 ```typescript
-export interface IDefaultWallet {
+export interface MyDefaultWallet {
   name: string; 
   iconUrl: string;
   downloadUrl: {
@@ -50,9 +50,9 @@ export interface IDefaultWallet {
 For example, you can use it when customizing defaultWallet item:
 
 ```typescript
-import IDefaultWallet from "@opensui/wallet-kit";
+import MyDefaultWallet from "@opensui/wallet-kit";
 
-const myWallet: IDefaultWallet = {
+const myWallet: MyDefaultWallet = {
   name: "myWallet",
   iconUrl: "external url or data url",
   downloadUrl: {
@@ -74,6 +74,6 @@ export interface WalletAccount {
 }
 ```
 
-## IWalletAdapter
+## MyDefaultWallet
 
 We also provide [Wallet Adapter interface](https://github.com/opensuiwallet/wallet-kit/blob/main/packages/kit/src/types/wallet.ts).

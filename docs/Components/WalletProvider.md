@@ -30,6 +30,6 @@ After that, you can customize [chain](/customize/chain), or called network and c
 
 |             Prop              |                     Type                     |                      Default                       |                                              Description                                               |
 | :---------------------------: | :------------------------------------------: | :------------------------------------------------: | :----------------------------------------------------------------------------------------------------: |
-|        defaultWallets         | [IDefaultWallet](/customize/types#idefaultwallet) | [...AllPresetWallets] |                Wallet list for dapp, by default we load all the preset wallets                |
+|        defaultWallets         | [MyDefaultWallet](/customize/types#MyDefaultWallet) | [...AllPresetWallets] |                Wallet list for dapp, by default we load all the preset wallets                |
 |            chains             |         [Chain](/customize/types#Chain)[]         |         [DefaultChains](/customize/types#Chain)         |                              Supported chains for dapp                             |
 |          autoConnect          |                   boolean                    |                        true                        |                        Auto connect to the last connected wallet when launched                         |

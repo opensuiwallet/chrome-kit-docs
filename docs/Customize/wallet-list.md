@@ -16,7 +16,7 @@ import {
   OpenSuiWallet,
   SuiWallet,
   EthosWallet,
-  IDefaultWallet,
+  MyDefaultWallet,
 } from '@opensui/wallet-kit';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
