@@ -119,7 +119,7 @@ function App() {
       <section className={'footer'}>
         <div className="logo">
           <img src={'./logo.svg'} alt="" />
-          <p>© 2023 OpenSui. All rights reserved.</p>
+          <p className="copyright">© 2023 OpenSui. All rights reserved.</p>
         </div>
         <div className="a_list">
           <div className="item">
@@ -137,6 +137,9 @@ function App() {
             <a href="https://twitter.com/OpenSui">Twitter</a>
             <a href="https://discord.gg/opensui">discord</a>
           </div>
+        </div>
+        <div className="copyright" style={{ display: 'none' }}>
+          © 2023 OpenSui. All rights reserved.
         </div>
       </section>
     </div>

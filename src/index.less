@@ -299,3 +299,233 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+@media (max-width: 530px) {
+
+}
+
+@media (max-width: 460px) {
+  .header {
+    .title {
+      img{
+        width: 300px!important;
+      }
+
+      .desc {
+        width: 300px!important;
+        font-size: 24px!important;
+      }
+      .btn-group {
+        width: 300px!important;
+
+        a {
+          gap: 10px;
+          width: 70px!important;
+          height: 16px!important;
+        }
+      }
+    }
+    .wallet {
+      top: 430px!important;
+      right: 20%!important;
+      width: 60%!important;
+    }
+  }
+
+  .benefit {
+    margin-top: 250px!important;
+    padding: 0 5%!important;
+
+    .benefit-title {
+      font-size: 30px!important;
+      margin-bottom: 40px;
+    }
+    .benefit-items {
+      gap: 24px!important;
+
+      .benefit-item {
+        &:hover {
+          background-color: #eff8fc;
+        }
+        padding: 0 5%!important;
+        width: 90%!important;
+        height: 144px!important;
+
+        img{
+          width: 80px;
+          height: auto;
+        }
+
+        .benefit-content {
+          gap: 12px!important;
+          .content-title {
+            font-weight: 500;
+            font-size: 20px!important;
+            line-height: 100%;
+            color: #000000;
+          }
+        }
+      }
+    }
+  }
+
+  .dapp {
+    margin-top: 50px!important;
+    gap: 70px;
+    padding: 0 15%;
+    flex-direction: column-reverse!important;
+
+    .dapp-left {
+      gap: 12px!important;
+      img{
+        width: 170px!important;
+      }
+    }
+    .dapp-right {
+      .title {
+        font-size: 24px!important;
+      }
+      .desc {
+        font-size: 14px!important;
+      }
+    }
+  }
+
+  .compatible {
+    padding: 0 15%;
+    margin-top: 94px!important;
+    flex-direction: column!important;
+    gap: 50px!important;
+
+    .compatible-left {
+      max-width: 487px;
+
+      .title {
+        font-size: 24px!important;
+      }
+      .desc {
+        font-size: 14px!important;
+      }
+    }
+
+    .compatible-right{
+      img{
+        width: 370px!important;
+      }
+    }
+  }
+
+  .join {
+    margin-top: 74px!important;
+    gap: 90px!important;
+
+    .join-title {
+      font-size: 24px!important;
+      color: #000000;
+    }
+    .btn-group {
+      gap: 20px!important;
+      margin: 50px 0!important;
+      flex-direction: column!important;
+
+      a{
+        width: 370px!important;
+        img{
+          width: 370px!important;
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex-direction: column!important;
+    border-top: 1px solid #498cb0;
+    margin: 0 auto;
+    margin-bottom: 130px!important;
+    gap: 20px!important;
+    padding: 3% 5%!important;
+    align-items: flex-start!important;
+
+    .copyright{
+      width: 100%;
+      text-align: center;
+      display: block!important;
+      font-weight: 300;
+      font-size: 13px!important;
+      line-height: 100%;
+      color: #909399;
+    }
+
+    .logo {
+      .copyright {
+        display: none!important;
+      }
+    }
+
+    .a_list {
+      width: 90%!important;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+
+      p {
+        font-size: 18px;
+        color: #0b4767;
+        margin-bottom: 36px;
+        font-weight: bold;
+      }
+
+      .item {
+        a {
+          font-size: 14px!important;
+          margin-bottom: 12px!important;
+        }
+      }
+    }
+
+    .share {
+      a {
+        display: block;
+        width: 86px;
+        height: 28px;
+        background: #ffffff;
+        border-radius: 4px;
+        padding-left: 27px;
+        margin-top: 20px;
+        line-height: 28px;
+        box-sizing: border-box;
+        font-size: 14px;
+        color: #1aafff;
+        position: relative;
+
+        &::before {
+          width: 17px;
+          height: 17px;
+          content: '';
+          background: url('../public/share.png');
+          background-size: 100%;
+          position: absolute;
+          top: 6px;
+          left: 7px;
+        }
+        &:nth-child(2)::before {
+          background: url('../public/twitter.png') no-repeat;
+          background-size: 100%;
+        }
+        &:nth-child(3)::before {
+          background: url('../public/discord.png') no-repeat;
+          background-size: 100%;
+          top: 10px;
+        }
+      }
+    }
+  }
+}
