@@ -98,7 +98,7 @@ function App() {
           <div className={'title'}>Frameworks Compatible</div>
           <div className={'desc'}>
             Packaged into a common NPM package, which can be easily connected to
-            any DAPP written by React or Vue on sui.
+            any DAPP written by React & Vite on sui.
           </div>
         </div>
         <div className={'compatible-right'}>
